@@ -10,7 +10,7 @@ namespace Services.Utility
         private static readonly string alphaLower = "abcdefghijklmnopqrstuvwxyz";
         private static readonly string numbers = "0123456789";
 
-        public static string Shorten ()
+        public static string CreateShortCode ()
         {
             // There is potentially a more secure algorithm that could create this. But for the small amount of URLs needed this should be okay
             Random r = new Random();

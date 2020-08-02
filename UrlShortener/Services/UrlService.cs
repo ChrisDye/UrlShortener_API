@@ -142,16 +142,10 @@ namespace Services
                 throw new Exception("Not found");
             }
 
-            Url urlUpdate = new Url
-            {
-                Id = url.Id,
-                AccessCount = url.AccessCount,
-                ActualUrl = url.ActualUrl,
-                ShortenedUrl = url.ShortenedUrl,
-                Created = currentUrl.Created
-            };
+            currentUrl.ShortenedUrl = url.ShortenedUrl;
+            currentUrl.ActualUrl = url.ActualUrl;
 
-            _context.Urls.Update(urlUpdate);
+            // An update should potentially clear down the access count? Left as is for now
 
             await _context.SaveChangesAsync();
 
