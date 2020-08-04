@@ -77,7 +77,7 @@ namespace Services
             }
 
             // We should also update the access count here, as we can presume this is someone being redirected
-            url.AccessCount = url.AccessCount + 1;
+            url.AccessCount += 1;
             _context.Urls.Update(url);
             await _context.SaveChangesAsync();
 

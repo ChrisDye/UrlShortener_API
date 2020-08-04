@@ -5,7 +5,7 @@ using Entities.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Controllers.Controllers
+namespace Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -76,6 +76,10 @@ namespace Controllers.Controllers
             try
             {
                 var result = await _urlService.UpdateUrl(url);
+                if (result == null)
+                {
+                    return NotFound();
+                }
                 return Ok(result);
             }
             catch (Exception ex)
