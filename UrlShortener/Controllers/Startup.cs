@@ -31,7 +31,7 @@ namespace Controllers
         {
             services.AddControllers();
 
-            services.AddDbContext<UrlContext>(options => options.UseInMemoryDatabase("UrlShortener"));
+            services.AddDbContext<UrlContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
 
             services.AddScoped<DbContext, UrlContext>();
             services.AddScoped<IUrlService, UrlService>();

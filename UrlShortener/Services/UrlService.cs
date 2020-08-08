@@ -56,6 +56,7 @@ namespace Services
                 {
                     Id = u.Id,
                     ActualUrl = u.ActualUrl,
+                    FriendlyName = u.FriendlyName,
                     ShortenedUrl = u.ShortenedUrl,
                     AccessCount = u.AccessCount
                 });
@@ -85,6 +86,7 @@ namespace Services
             {
                 Id = url.Id,
                 ActualUrl = url.ActualUrl,
+                FriendlyName = url.FriendlyName,
                 ShortenedUrl = url.ShortenedUrl,
                 AccessCount = url.AccessCount
             };
@@ -115,6 +117,7 @@ namespace Services
             _context.Urls.Add(new Url
             {
                 ActualUrl = url.ActualUrl,
+                FriendlyName = url.FriendlyName,
                 ShortenedUrl = shortenedUrl,
                 Created = DateTime.Now
             });
@@ -144,6 +147,7 @@ namespace Services
 
             currentUrl.ShortenedUrl = url.ShortenedUrl;
             currentUrl.ActualUrl = url.ActualUrl;
+            currentUrl.FriendlyName = url.FriendlyName;
 
             // An update should potentially clear down the access count? Left as is for now
 
